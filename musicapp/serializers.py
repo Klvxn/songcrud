@@ -14,13 +14,13 @@ class LyricSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lyric
-        fields = ["content"]
+        fields = ["lyric"]
 
 
 class SongSerializer(serializers.ModelSerializer):
 
     artiste_id = ArtisteSerializer()
-    lyric_set = LyricSerializer(many=True, required=False)
+    lyric_set = serializers.StringRelatedField()
 
     class Meta:
         model = Song

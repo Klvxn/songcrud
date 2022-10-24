@@ -25,6 +25,8 @@ class Song(models.Model):
 
 class Lyric(models.Model):
     
-    song_id = models.ForeignKey(Song, on_delete=models.CASCADE)
-    content = models.TextField(max_length=1000)
+    song_id = models.OneToOneField(Song, on_delete=models.CASCADE)
+    lyric = models.TextField(max_length=1000)
 
+    def __str__(self) -> str:
+        return f"Lyrics for {self.song_id.title}"
