@@ -9,7 +9,7 @@ class Artiste(models.Model):
     age = models.PositiveIntegerField()
 
     def __str__(self) -> str:
-        return self.first_name
+        return f"{self.first_name} {self.last_name}"
 
     
 class Song(models.Model):
